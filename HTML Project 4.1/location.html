@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location - Roll an Go Rentals</title>
+    <link rel="stylesheet" href="Roll an Go.css">
+    
+
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Company Logo">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="cars.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="location.html" class="active">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="header">
+        <h1 class="site-title" style="font-size: 32px;">Our Station Location</h1>
+        <p style="color: #a7addc; margin-top: 10px;">Find our hub and explore the area around Cubao, Quezon City.</p>
+    </div>
+
+    <div class="location-container">
+        <!-- Draggable Map Viewport Container -->
+        <div class="map-viewport" id="viewport">
+            <img src="images/map.png" alt="Map View" id="draggable-map">
+        </div>
+        <p class="map-instructions">💡 Click and drag anywhere on the map to pan around the area.</p>
+    </div>
+
+
+
+
+    //Geoblocking
+    <div id="geoblock" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background-color: #01071f; border: 2px solid #d3a44b; padding: 40px; border-radius: 12px; max-width: 500px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <h2 style="color: #d3a44b; font-size: 28px; margin-top: 0;">Out of service error</h2>
+        <p style="color: #ffffff; font-size: 18px; line-height: 1.5; margin: 20px 0;">
+            <span id="geotext">Access to this website is restricted in your current location.</span>
+        </p>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <p>&copy; 2026 Roll an Go Rentals. All rights reserved.</p>
+    </div>
+
+
+
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+            const viewportData_JSON = localStorage.getItem('viewportData');
+
+            const viewport = document.getElementById('viewport');
+            const mapImg = document.getElementById('draggable-map');
+
+
+            let isDragging = false;
+            let startX, startY;
+            
+            let currentX = -50; 
+            let currentY = -50;
+
+            viewport.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX - currentX;
+                startY = e.clientY - currentY;
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                currentX = e.clientX - startX;
+                currentY = e.clientY - startY;
+
+                mapImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(1.5)`;
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // Touch Support for Mobile Devices
+            viewport.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startX = e.touches[0].clientX - currentX;
+                startY = e.touches[0].clientY - currentY;
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX - startX;
+                currentY = e.touches[0].clientY - startY;
+                mapImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(1.5)`;
+            });
+
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+        })
+
+    const allowedIP = "103.141.203.2"; // company wifi : KMC Solutions IP address
+    const text = document.getElementById('geotext')
+
+    text.innerText = "Access to this website is restricted in your current location."
+
+document.addEventListener('DOMContentLoaded', () => {
+    const geoblock = document.getElementById('geoblock');
+    // Fetch the user's current public IP address
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const userIP = data.ip;
+
+            if (userIP === allowedIP) {
+                // They are on the correct Wi-Fi, reveal the website
+                geoblock.style.display = 'none';
+                text.innerText = "Access to this website is restricted in your current location."
+            } else {
+                // They are on the wrong Wi-Fi, show the error
+                geoblock.style.display = 'flex';
+                text.innerText = "Access to this website is restricted in your current location."
+            }
+        })
+        .catch(error => {
+            geoblock.style.display = 'flex';
+            text.innerText = "You are currently offline. Please check your network settings.";
+
+        });
+});
+
+
+</script> 
+</body>
+</html>

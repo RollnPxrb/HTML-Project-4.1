@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="Roll an Go.css">
+    
+</head>
+<body>
+
+<div>
+    <header>
+        <div class="logo-container">
+            <a href="cars.html">
+                <img src="images/logo.png" alt="Company Logo">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="cars.html" class="active">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 style="text-align:center; margin-top:30px; color:#ffffff;">Secure Checkout</h1>
+    
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 20px;">
+        
+        <!-- LEFT COLUMN: FORMS -->
+        <div class="section" style="width: 55%; padding:20px; border:2px solid #d3a44b; background-color:#01071f; border-radius: 8px;">
+            <form action="#" method="POST" id="checkout-form">
+                
+                <!-- Personal Information -->
+                <h2 style="color:#ffffff; border-bottom: 1px solid #333; padding-bottom: 10px;">1. Personal Information</h2>
+                <div style="margin-top: 15px;">
+                    <div>
+                        <label for="first-name" style="color:#a7addc;">First Name</label><br>
+                        <input type="text" id="first-name" name="first-name" placeholder="John" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="last-name" style="color:#a7addc;">Last Name</label><br>
+                        <input type="text" id="last-name" name="last-name" placeholder="Doe" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="email" style="color:#a7addc;">Email Address</label><br>
+                        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                </div>
+                <br>
+
+                <!-- Shipping Address -->
+                <h2 style="color:#ffffff; border-bottom: 1px solid #333; padding-bottom: 10px;">2. Shipping Address</h2>
+                <div style="margin-top: 15px;">
+                    <div>
+                        <label for="address" style="color:#a7addc;">Street Address</label><br>
+                        <input type="text" id="address" name="address" placeholder="123 Main St, Apt 4B" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="city" style="color:#a7addc;">City</label><br>
+                        <input type="text" id="city" name="city" placeholder="New York" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="state" style="color:#a7addc;">State / Province</label><br>
+                        <input type="text" id="state" name="state" placeholder="NY" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="zip" style="color:#a7addc;">ZIP / Postal Code</label><br>
+                        <input type="text" id="zip" name="zip" placeholder="10001" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="country" style="color:#a7addc;">Country</label><br>
+                        <select id="country" name="country" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="PH">Philippines</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Payment Method -->
+                <h2 style="color:#ffffff; border-bottom: 1px solid #333; padding-bottom: 10px;">3. Payment Details</h2>
+                <div style="margin-top: 15px;">
+                    <div>
+                        <label for="card-name" style="color:#a7addc;">Name on Card</label><br>
+                        <input type="text" id="card-name" name="card-name" placeholder="John Doe" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="card-number" style="color:#a7addc;">Card Number</label><br>
+                        <input type="text" id="card-number" name="card-number" placeholder="0000 0000 0000 0000" required style="width:90%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                    </div>
+                    <br>
+                    <div style="display:flex; gap:20px;">
+                        <div style="flex:1;">
+                            <label for="expiry" style="color:#a7addc;">Expiration Date</label><br>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required style="width:100%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                        </div>
+                        <div style="flex:1; padding-right: 10%;">
+                            <label for="cvc" style="color:#a7addc;">CVC</label><br>
+                            <input type="text" id="cvc" name="cvc" placeholder="123" required style="width:100%; padding:10px; border-radius:4px; border:none; margin-top:5px;">
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <button type="submit" class="btn" style="width:90%; margin-top: 20px;">
+                    Complete Order
+                </button>
+            </form>
+        </div>
+
+        <!-- RIGHT COLUMN: CART / ORDER SUMMARY -->
+        <div class="section" style="width: 35%; padding:20px; border:2px solid #d3a44b; background-color:#01071f; align-self: flex-start; border-radius: 8px;">
+            <h2 style="color:#ffffff; border-bottom: 2px solid #d3a44b; padding-bottom:10px;">Order Summary</h2>
+            
+            <div id="checkout-cart-items" style="margin-top: 15px;">
+                <p style="color:#ffffff;">Loading cart...</p>
+            </div>
+
+            <!-- Totals -->
+            <div style="border-top: 2px solid #d3a44b; margin-top:20px; padding-top:20px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:#ffffff;">
+                    <span>Subtotal: </span>
+                    <span id="checkout-subtotal">₱0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:#ffffff;">
+                    <span>Tax (12%): </span>
+                    <span id="checkout-tax">₱0.00</span>
+                </div>
+            </div>
+            
+            <div style="border-top: 2px solid #d3a44b; padding-top:20px; display:flex; justify-content:space-between; color:#ffffff;">
+                <strong style="font-size:20px;">Total: </strong>
+                <strong style="font-size:20px; color:#e5a823;" id="checkout-total">₱0.00</strong>
+            </div>
+
+            <div style="text-align:center; margin-top: 30px;">
+                <p style="color:#a7a5a5;"><small>Secure checkout powered by Stripe</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+//Geoblocking
+    <div id="geoblock" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background-color: #01071f; border: 2px solid #d3a44b; padding: 40px; border-radius: 12px; max-width: 500px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <h2 style="color: #d3a44b; font-size: 28px; margin-top: 0;">Out of service error</h2>
+        <p style="color: #ffffff; font-size: 18px; line-height: 1.5; margin: 20px 0;">
+            <span id="geotext">Access to this website is restricted in your current location.</span>
+        </p>
+
+    </div>
+    </div>
+
+<div class="footer">
+  <p>&copy; 2026 Roll an Go Rentals. All rights reserved.</p>
+</div>
+
+
+</body>
+<script src="javascript.js"></script>
+<script>
+
+ const allowedIP = "103.141.203.2"; // company wifi : KMC Solutions IP address
+    const text = document.getElementById('geotext')
+
+    text.innerText = "Access to this website is restricted in your current location."
+
+document.addEventListener('DOMContentLoaded', () => {
+    const geoblock = document.getElementById('geoblock');
+    // Fetch the user's current public IP address
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const userIP = data.ip;
+
+            if (userIP === allowedIP) {
+                // They are on the correct Wi-Fi, reveal the website
+                geoblock.style.display = 'none';
+                text.innerText = "Access to this website is restricted in your current location."
+            } else {
+                // They are on the wrong Wi-Fi, show the error
+                geoblock.style.display = 'flex';
+                text.innerText = "Access to this website is restricted in your current location."
+            }
+        })
+        .catch(error => {
+            geoblock.style.display = 'flex';
+            text.innerText = "You are currently offline. Please check your network settings.";
+
+        });
+});
+
+</script>
+
+
+</html>
