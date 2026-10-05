@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location - Roll an Go Rentals</title>
+    <link rel="stylesheet" href="Roll an Go.css">
+    
+
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Company Logo">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="cars.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="location.html" class="active">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="header">
+        <h1 class="site-title" style="font-size: 32px;">Our Station Location</h1>
+        <p style="color: #a7addc; margin-top: 10px;">Find our hub and explore the area around Cubao, Quezon City.</p>
+    </div>
+
+    <div class="location-container">
+        <!-- Draggable Map Viewport Container -->
+        <div class="map-viewport" id="viewport">
+            <img src="images/map.png" alt="Map View" id="draggable-map">
+        </div>
+        <p class="map-instructions">💡 Click and drag anywhere on the map to pan around the area.</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Roll an Go Rentals. All rights reserved.</p>
+    </div>
+
+    <script>
+        // JavaScript logic for smooth image dragging/panning inside the container
+        const viewport = document.getElementById('viewport');
+        const mapImg = document.getElementById('draggable-map');
+
+        let isDragging = false;
+        let startX, startY;
+        
+        let currentX = -50; 
+        let currentY = -50;
+
+        // Mouse Drag Support
+        viewport.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX - currentX;
+            startY = e.clientY - currentY;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            currentX = e.clientX - startX;
+            currentY = e.clientY - startY;
+
+            mapImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(1.5)`;
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch Support for Mobile Devices
+        viewport.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX - currentX;
+            startY = e.touches[0].clientY - currentY;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX - startX;
+            currentY = e.touches[0].clientY - startY;
+            mapImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(1.5)`;
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll an Go Rentals</title>
+    <link rel="stylesheet" href="Roll an Go.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Company Logo">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+
+                <li><a href="cars.html" class="active">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <img src="images/parking.jpg" alt="hero background">
+        <div class="hero-content">
+            <h2>Find your road. Rent the ride.</h2>
+            <p>Well-kept and ready to go wherever you're headed.</p>
+            <a href="#cars" class="btn">Browse Our Cars</a>
+        </div>
+    </div>
+
+<div class="section" id="cars">
+  <h2>Our Cars</h2>
+  <p>Pick a category below to see the cars we have available.</p>
+
+  <div id="categoriesView" class="category-grid">
+    <div class="category-card" onclick="showCategory('suv')">
+      <img src="images/suv.png" alt="SUV" class="category-photo">
+      <p>SUV</p>
+    </div>
+    <div class="category-card" onclick="showCategory('sedan')">
+      <img src="images/sedan.png" alt="Sedan" class="category-photo">
+      <p>SEDAN</p>
+    </div>
+    <div class="category-card" onclick="showCategory('van')">
+      <img src="images/van.png" alt="Van" class="category-photo">
+      <p>VAN</p>
+    </div>
+    <div class="category-card" onclick="showCategory('motorcycles')">
+      <img src="images/motorcycle.png" alt="Motorcycles" class="category-photo">
+      <p>MOTORCYCLES</p>
+    </div>
+    <div class="category-card" onclick="showCategory('pickup')">
+      <img src="images/pickup.png" alt="Pick up" class="category-photo">
+      <p>PICK UP</p>
+    </div>
+  </div>
+
+  <div class="category-page" id="page-suv">
+    <button class="back-btn" onclick="showCategories()">&larr; Back to categories</button>
+    <div class="category-box">
+      <h3>SUV</h3>
+      <table class="car-table">
+        <tr>
+          <th>Photo</th>
+          <th>Car</th>
+          <th>Seats</th>
+          <th>Transmission</th>
+          <th>Fuel</th>
+          <th>Price / day</th>
+          <th>Description</th>
+          <th>Action</th> 
+        </tr>
+        <tr>
+          <td><img src="images/toyotaraize.jpg" alt="Meridian SUV" class="car-photo"></td>
+          <td>Toyota Raize 1.2 E</td>
+          <td>5</td>
+          <td>CVT</td>
+          <td>Gasoline</td>
+          <td>₱2,000</td>
+          <td>Compact, fuel-efficient SUV for city trips.</td>
+          <td><button class="btn" data-name="Toyota Raize 1.2 E" data-price="2000" data-image="images/toyotaraize.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/toyotarush.jpg" alt="Highland SUV" class="car-photo"></td>
+          <td>Toyota Rush 1.5 G GR-S</td>
+          <td>7</td>
+          <td>Automatic</td>
+          <td>Gasoline</td>
+          <td>₱2,500</td>
+          <td>Reliable 7-seater for families and longer trips.</td>
+          <td><button class="btn" data-name="Toyota Rush 1.5 G GR-S" data-price="2500" data-image="images/toyotarush.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/toyotaveloz.jpg" alt="Everest SUV" class="car-photo"></td>
+          <td>Toyota Veloz 1.5 G</td>
+          <td>7</td>
+          <td>CVT</td>
+          <td>Gasoline</td>
+          <td>₱2,700</td>
+          <td>Small, capable SUV for city and weekend trips.</td>
+          <td><button class="btn" data-name="Toyota Veloz 1.5 G" data-price="2700" data-image="images/toyotaveloz.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="category-page" id="page-sedan">
+    <button class="back-btn" onclick="showCategories()">&larr; Back to categories</button>
+    <div class="category-box">
+      <h3>Sedan</h3>
+      <table class="car-table">
+        <tr>
+          <th>Photo</th>
+          <th>Car</th>
+          <th>Seats</th>
+          <th>Transmission</th>
+          <th>Fuel</th>
+          <th>Price / day</th>
+          <th>Description</th>
+          <th>Action</th> 
+        </tr>
+        <tr>
+          <td><img src="images/toyotavios1.jpg" alt="Solstice Coupe" class="car-photo"></td>
+          <td>Toyota Vios 1.3 J M/T</td>
+          <td>5</td>
+          <td>Manual</td>
+          <td>Gasoline</td>
+          <td>₱1,500</td>
+          <td>Reliable and economical daily sedan.</td>
+          <td><button class="btn" data-name="Toyota Vios 1.3 J M/T" data-price="1500" data-image="images/toyotavios1.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/vios2.jpg" alt="Aster Sedan" class="car-photo"></td>
+          <td>Toyota Vios 1.2 XE</td>
+          <td>5</td>
+          <td>CVT</td>
+          <td>Gasoline</td>
+          <td>₱1,700</td>
+          <td>Comfortable and efficient daily sedan</td>
+          <td><button class="btn" data-name="Toyota Vios 1.2 XE" data-price="1700" data-image="images/vios2.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/ativ.jpg" alt="Regal Saloon" class="car-photo"></td>
+          <td>Toyota Atic 1.3 E</td>
+          <td>5</td>
+          <td>CVT</td>
+          <td>Gasoline</td>
+          <td>₱1,800</td>
+          <td>Affordable and practical city sedan.</td>
+          <td><button class="btn" data-name="Toyota Atic 1.3 E" data-price="1800" data-image="images/ativ.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="category-page" id="page-van">
+    <button class="back-btn" onclick="showCategories()">&larr; Back to categories</button>
+    <div class="category-box">
+      <h3>Van</h3>
+      <table class="car-table">
+        <tr>
+          <th>Photo</th>
+          <th>Car</th>
+          <th>Seats</th>
+          <th>Transmission</th>
+          <th>Fuel</th>
+          <th>Price / day</th>
+          <th>Description</th>
+          <th>Action</th> 
+        </tr>
+        <tr>
+          <td><img src="images/avanza.jpg" alt="Journey Van" class="car-photo"></td>
+          <td>Toyota Avanza 1.3 E</td>
+          <td>7</td>
+          <td>CVT</td>
+          <td>Gasoline</td>
+          <td>₱2,000</td>
+          <td>Practical 7-seater for everyday trips.</td>
+          <td><button class="btn" data-name="Toyota Avanza 1.3 E" data-price="2000" data-image="images/avanza.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/innova.jpg" alt="Transit Van" class="car-photo"></td>
+          <td>Toyota Innova 2.8 E</td>
+          <td>8</td>
+          <td>Automatic</td>
+          <td>Diesel</td>
+          <td>₱2,800</td>
+          <td>Spacious and dependable family MPV.</td>
+          <td><button class="btn" data-name="Toyota Innova 2.8 E" data-price="2800" data-image="images/innova.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/commuter.jpg" alt="Voyager Van" class="car-photo"></td>
+          <td>Toyota HiAce Commuter 2.8 M/T</td>
+          <td>15</td>
+          <td>Manual</td>
+          <td>Deisel</td>
+          <td>₱3,500</td>
+          <td>TSpacious van for large groups.</td>
+          <td><button class="btn" data-name="Toyota HiAce Commuter 2.8 M/T" data-price="3500" data-image="images/commuter.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="category-page" id="page-motorcycles">
+    <button class="back-btn" onclick="showCategories()">&larr; Back to categories</button>
+    <div class="category-box">
+      <h3>Motorcycles</h3>
+      <table class="car-table">
+        <tr>
+          <th>Photo</th>
+          <th>Model</th>
+          <th>Seats</th>
+          <th>Transmission</th>
+          <th>Fuel</th>
+          <th>Price / day</th>
+          <th>Description</th>
+          <th>Action</th> 
+        </tr>
+        <tr>
+          <td><img src="images/beat.jpg" alt="Rally Sport" class="car-photo"></td>
+          <td>Honda BeAT 110</td>
+          <td>2</td>
+          <td>Automatic</td>
+          <td>Gasoline</td>
+          <td>₱500</td>
+          <td>Lightweight and economical scooter.</td>
+          <td><button class="btn" data-name="Honda BeAT 110" data-price="500" data-image="images/beat.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/click.jpg" alt="Cruiser Classic" class="car-photo"></td>
+          <td>Honda Click 125i</td>
+          <td>2</td>
+          <td>Automatic</td>
+          <td>Gasoline</td>
+          <td>₱600</td>
+          <td>Reliable and practical everyday scoote.</td>
+          <td><button class="btn" data-name="Honda Click 125i" data-price="600" data-image="images/click.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/mio.jpg" alt="City Scooter" class="car-photo"></td>
+          <td>Yamaha Mio Gear 125</td>
+          <td>2</td>
+          <td>Automatic</td>
+          <td>Gasoline</td>
+          <td>₱550</td>
+          <td>Practical scooter for everyday travel.</td>
+          <td><button class="btn" data-name="Yamaha Mio Gear 125" data-price="550" data-image="images/mio.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="category-page" id="page-pickup">
+    <button class="back-btn" onclick="showCategories()">&larr; Back to categories</button>
+    <div class="category-box">
+      <h3>Pick up</h3>
+      <table class="car-table">
+        <tr>
+          <th>Photo</th>
+          <th>Car</th>
+          <th>Seats</th>
+          <th>Transmission</th>
+          <th>Fuel</th>
+          <th>Price / day</th>
+          <th>Description</th>
+          <th>Action</th> 
+        </tr>
+        <tr>
+          <td><img src="images/hilux24.jpg" alt="Ranger Pickup" class="car-photo"></td>
+          <td>Toyota Hilux 2.4 4x2 M/T</td>
+          <td>5</td>
+          <td>Manual</td>
+          <td>Diesel</td>
+          <td>₱2,500</td>
+          <td>Dependable pickup for work or travel.</td>
+          <td><button class="btn" data-name="Toyota Hilux 2.4 4x2 M/T" data-price="2500" data-image="images/hilux24.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/hilux28.jpg" alt="Trailhead Pickup" class="car-photo"></td>
+          <td>Toyota Hilux 2.8 E 4x2</td>
+          <td>5</td>
+          <td>Automatic</td>
+          <td>Diesel</td>
+          <td>₱2,800</td>
+          <td>Reliable pickup for long trips and hauling.</td>
+          <td><button class="btn" data-name="Toyota Hilux 2.8 E 4x2" data-price="2800" data-image="images/hilux28.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+        <tr>
+          <td><img src="images/hiluxg28.jpg" alt="Summit Pickup" class="car-photo"></td>
+          <td>Toyota Hilux 2.8 G 4x2</td>
+          <td>5</td>
+          <td>Automatic</td>
+          <td>Diesel</td>
+          <td>₱3,000</td>
+          <td>Comfortable and capable pickup for travel.</td>
+          <td><button class="btn" data-name="Toyota Hilux 2.8 G 4x2" data-price="3000" data-image="images/hiluxg28.jpg" onclick="addToCart(this)">Add to cart</button></td> 
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ORDER SUCCESS POPUP (Hidden by default, triggered by JS) -->
+<div id="order-success-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background-color: #01071f; border: 2px solid #d3a44b; padding: 40px; border-radius: 12px; max-width: 500px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+        <h2 style="color: #d3a44b; font-size: 28px; margin-top: 0;">Order Completed!</h2>
+        <p style="color: #ffffff; font-size: 18px; line-height: 1.5; margin: 20px 0;">
+            Order completed, kindly please wait tracking updates on your contact info provided.
+        </p>
+        <p style="color: #a7a5a5; font-size: 14px; margin-top: 30px;">
+            Closing in <span id="success-countdown">10</span> seconds...
+        </p>
+    </div>
+</div>
+
+<!-- Detailed Cart Overlay (Hidden by default) -->
+<div id="cart-overlay" class="cart-overlay" onclick="closeCart(event)">
+    <div class="cart-modal" id="cart-modal">
+        
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <div class="header-actions">
+                <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+                <button class="close-cart-btn" onclick="closeCart(event, true)">×</button>
+            </div>
+        </div>
+
+        <div id="modal-cart-items">
+
+
+          `
+        </div>
+
+
+        <div class="cart-footer">
+            <div class="footer-details">
+                <div class="timeframe">
+                    <span class="label">Timeframe</span>
+                    <span class="value">1 Day (Demo)</span>
+                </div>
+                <div class="total-price-section">
+                    <span class="label">Total Price</span>
+                    <span class="value" id="modal-total-price">₱0.00</span>
+                </div>
+            </div>
+            <div class="footer-action">
+                <a href="checkout.html" class="checkout-btn">PROCEED TO CHECKOUT →</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2026 Roll an Go Rentals. All rights reserved.</p>
+</div>
+
+<script>
+// Category switching scripts
+function showCategory(id){
+  document.getElementById('categoriesView').style.display = 'none';
+  var pages = document.getElementsByClassName('category-page');
+  for(var i = 0; i < pages.length; i++){ pages[i].style.display = 'none'; }
+  document.getElementById('page-' + id).style.display = 'block';
+}
+function showCategories(){
+  var pages = document.getElementsByClassName('category-page');
+  for(var i = 0; i < pages.length; i++){ pages[i].style.display = 'none'; }
+  document.getElementById('categoriesView').style.display = 'grid';
+}
+function setActiveNav(link){
+  var links = document.getElementsByClassName('nav-link');
+  for(var i = 0; i < links.length; i++){ links[i].classList.remove('active'); }
+  link.classList.add('active');
+}
+
+// --- CART LOGIC ---
+
+// 1. Keep popup open persistently if items exist when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    if (cartList.length > 0) {
+        showPopup(cartList.length);
+    }
+});
+
+function addToCart(buttonElement) {
+    const carName = buttonElement.getAttribute('data-name');
+    const carPrice = buttonElement.getAttribute('data-price');
+    const carImage = buttonElement.getAttribute('data-image');
+
+    const selectedCar = {
+        // Create a unique ID so we can remove specific items easily
+        id: Date.now().toString(), 
+        name: carName,
+        price: parseInt(carPrice),
+        image: carImage,
+        brand: carName.split(' ')[0] // Extracts "Toyota", "Honda", etc. for the subtitle
+    };
+
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    cartList.push(selectedCar);
+    localStorage.setItem('cartList', JSON.stringify(cartList));
+
+    // Open the modal and update the view
+    openCartModal();
+}
+
+function openCartModal() {
+    const overlay = document.getElementById('cart-overlay');
+    overlay.classList.add('show');
+    renderCartModal();
+}
+
+// Closes modal if user clicks the X or outside the white box
+function closeCart(event, forceClose = false) {
+    if (forceClose || event.target.id === 'cart-overlay') {
+        document.getElementById('cart-overlay').classList.remove('show');
+    }
+}
+
+function renderCartModal() {
+    const container = document.getElementById('modal-cart-items');
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    
+    container.innerHTML = '';
+    let total = 0;
+
+    if (cartList.length === 0) {
+        container.innerHTML = '<p style="color:#000; text-align:center; margin-top:20px;">Your cart is empty.</p>';
+        document.getElementById('modal-total-price').innerText = '₱0.00';
+        return;
+    }
+
+    // Build the item cards
+    cartList.forEach((car, index) => {
+        total += car.price;
+        
+        const cardHTML = `
+            <div class="cart-item-card">
+                <img src="${car.image}" alt="${car.name}">
+                <div class="item-details">
+                    <h4>${car.name}</h4>
+                    <p>${car.brand}</p>
+                    <strong>₱${car.price.toLocaleString()}/day</strong>
+                </div>
+                <button class="remove-btn" onclick="removeItem('${car.id}')">Remove</button>
+            </div>
+        `;
+        container.innerHTML += cardHTML;
+    });
+
+    document.getElementById('modal-total-price').innerText = `₱${total.toLocaleString()}.00`;
+}
+
+function removeItem(carId) {
+    let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+    // Keep everything EXCEPT the car with the matching ID
+    cartList = cartList.filter(car => car.id !== carId);
+    
+    localStorage.setItem('cartList', JSON.stringify(cartList));
+    renderCartModal(); // Refresh the modal instantly
+}
+
+function clearCart() {
+    if(confirm("Are you sure you want to empty your cart?")) {
+        localStorage.removeItem('cartList');
+        renderCartModal();
+    }
+}
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Check if the user just completed an order
+    if (localStorage.getItem('orderStatus') === 'completed') {
+        const successPopup = document.getElementById('order-success-popup');
+        successPopup.style.display = 'flex';
+        
+        // Remove the flag so it doesn't pop up again if they refresh the page
+        localStorage.removeItem('orderStatus');
+
+        let secondsLeft = 10;
+        const countdownElement = document.getElementById('success-countdown');
+        
+        const timerInterval = setInterval(function() {
+            secondsLeft--;
+            countdownElement.innerText = secondsLeft;
+            
+            if (secondsLeft <= 0) {
+                clearInterval(timerInterval);
+                successPopup.style.display = 'none'; // Hide popup after 10s
+            }
+        }, 1000);
+    }
+});
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Roll an Go Rentals</title>
+    <link rel="stylesheet" href="Roll an Go.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Company Logo">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="cars.html" class="active">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="header">
+        <h1 class="site-title" style="font-size: 32px;">Get in Touch</h1>
+        <p style="color: #a7addc; margin-top: 10px;">We're here to help you get on the road.</p>
+    </div>
+
+    <div class="contact-container">
+        
+        <div class="contact-info-panel">
+            <h3>Customer Support</h3>
+            <p style="color: #ffffff; line-height: 1.6;">
+                Have questions about a rental, need help with an existing reservation, or want to report an issue? Our team is ready to assist you.
+            </p>
+            
+            <div class="hotline-box">
+                <span style="color: #a7addc; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">24/7 Customer Service Hotline</span>
+                <a href="tel:180018881553" class="hotline-number">1800-1888-1553</a>
+            </div>
+
+            <div style="margin-top: 30px; color: #a7addc;">
+                <p><strong>Email:</strong> support@rollangorentals.com</p>
+                <p><strong>Office Hours:</strong> Monday - Sunday, 8:00 AM - 8:00 PM</p>
+            </div>
+        </div>
+
+        <div class="contact-form-panel">
+            <h3>Send us a Message</h3>
+            <form action="#" method="POST" id="contact-form">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required style="width: 100%; padding: 12px; background-color: #05031b; border: 1px solid #999999; color: #ffffff; border-radius: 4px;">
+                        <option value="">Select a topic...</option>
+                        <option value="reservation">Reservation Inquiry</option>
+                        <option value="billing">Billing / Payment</option>
+                        <option value="feedback">Feedback / Complaint</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+                </div>
+
+                <button type="submit" class="btn submit-btn">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="contact-success" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background-color: #01071f; border: 2px solid #d3a44b; padding: 40px; border-radius: 12px; max-width: 400px; text-align: center;">
+            <h2 style="color: #d3a44b; margin-top: 0;">Message Sent!</h2>
+            <p style="color: #ffffff; margin: 20px 0;">Thank you for reaching out. Our support team will get back to you shortly.</p>
+            <button onclick="document.getElementById('contact-success').style.display='none'" class="btn">Close</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Roll an Go Rentals. All rights reserved.</p>
+    </div>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            document.getElementById('contact-success').style.display = 'flex'; // Show success popup
+            this.reset(); // Clear the form fields
+        });
+    </script>
+
+</body>
+</html>
