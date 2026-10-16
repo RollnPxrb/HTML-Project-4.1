@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="Roll an Go.css">
     <script src="javascript.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 
@@ -57,7 +58,7 @@
 
 <script>
 
- const allowedIP = ["103.141.203.2", "136.158.83.32"]; // company wifi : KMC Solutions IP address & Home wifi
+//  let allowedIP = JSON.parse(localStorage.getItem('allowedIP')) || [];
     const text = document.getElementById('geotext')
 
     text.innerText = "Access to this website is restricted in your current location."
