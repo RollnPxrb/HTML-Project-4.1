@@ -6,6 +6,7 @@
     <title>Roll an Go Rentals</title>
     <link rel="stylesheet" href="Roll an Go.css">
     <script src="javascript.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -89,7 +90,7 @@
           <td><button class="btn" data-name="Toyota Raize 1.2 E" data-price="2000" data-image="images/toyotaraize.jpg" onclick="addToCart(this)">Add to cart</button></td> 
         </tr>
         <tr>
-          <td><img src="images/toyotarush.png" alt="Highland SUV" class="car-photo"></td>
+          <td><img src="images/toyotarush.jpg" alt="Highland SUV" class="car-photo"></td>
           <td>Toyota Rush 1.5 G GR-S</td>
           <td>7</td>
           <td>Automatic</td>
@@ -99,7 +100,7 @@
           <td><button class="btn" data-name="Toyota Rush 1.5 G GR-S" data-price="2500" data-image="images/toyotarush.jpg" onclick="addToCart(this)">Add to cart</button></td> 
         </tr>
         <tr>
-          <td><img src="images/toyotaveloz.png" alt="Everest SUV" class="car-photo"></td>
+          <td><img src="images/toyotaveloz.jpg" alt="Everest SUV" class="car-photo"></td>
           <td>Toyota Veloz 1.5 G</td>
           <td>7</td>
           <td>CVT</td>
@@ -138,14 +139,14 @@
           <td><button class="btn" data-name="Toyota Vios 1.3 J M/T" data-price="1500" data-image="images/toyotavios1.jpg" onclick="addToCart(this)">Add to cart</button></td> 
         </tr>
         <tr>
-          <td><img src="images/vios2.png" alt="Aster Sedan" class="car-photo"></td>
+          <td><img src="images/vios2.jpg" alt="Aster Sedan" class="car-photo"></td>
           <td>Toyota Vios 1.2 XE</td>
           <td>5</td>
           <td>CVT</td>
           <td>Gasoline</td>
           <td>₱1,700</td>
           <td>Comfortable and efficient daily sedan</td>
-          <td><button class="btn" data-name="Toyota Vios 1.2 XE" data-price="1700" data-image="images/vios2png" onclick="addToCart(this)">Add to cart</button></td> 
+          <td><button class="btn" data-name="Toyota Vios 1.2 XE" data-price="1700" data-image="images/vios2.jpg" onclick="addToCart(this)">Add to cart</button></td> 
         </tr>
         <tr>
           <td><img src="images/ativ.jpg" alt="Regal Saloon" class="car-photo"></td>
@@ -383,7 +384,7 @@
 
 <script>
 
- const allowedIP = ["103.141.203.2", "136.158.83.32"]; // company wifi : KMC Solutions IP address & Home wifi
+  // let allowedIP = JSON.parse(localStorage.getItem('allowedIP')) || [];
     const text = document.getElementById('geotext')
 
     text.innerText = "Access to this website is restricted in your current location."
@@ -397,6 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const userIP = data.ip;
 
             const currentIP = allowedIP.some(item => item.includes(userIP));
+            console.log(allowedIP);
+            console.log(currentIP);
             if (currentIP) {
                 // They are on the correct Wi-Fi, reveal the website
                 geoblock.style.display = 'none';
@@ -408,6 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => {
+            console.log(allowedIP);
             geoblock.style.display = 'flex';
             text.innerText = "You are currently offline. Please check your network settings.";
 

@@ -1,5 +1,8 @@
 //This is the javascript that cars.html uses:
 
+const allowedIP = ["103.141.203.2", "136.158.83.194"]; // company wifi : KMC Solutions IP address & Home wifi
+
+// localStorage.setItem('allowedIP', JSON.stringify(allowedIP));
 
 function showCategory(id){
   document.getElementById('categoriesView').style.display = 'none';
@@ -148,17 +151,92 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //checkout.html :
-        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+        document.getElementById('checkout-form').addEventListener('submit', async function(e) {
             e.preventDefault(); 
+
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const zip = document.getElementById('zip').value;
+            const country = document.getElementById('country').value;
+
+            const cardName = document.getElementById('card-name').value;
+            const cardNumber = document.getElementById('card-number').value;
+            const expiry = document.getElementById('expiry').value;
+            const cvc = document.getElementById('cvc').value;
             
-            // Empty the cart
-            localStorage.removeItem('cartList');
+            let cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+            let orderItemsText = "";
+            let subtotal = 0;
+
+            cartList.forEach((car) => {
+                subtotal += car.price;
+                orderItemsText += `- ${car.name} (${car.brand}): ₱${car.price.toLocaleString()}/day\n`;
+            });
             
-            // Set a flag so cars.html knows an order was just placed
-            localStorage.setItem('orderStatus', 'completed');
+            const tax = subtotal * 0.12;
+            const grandTotal = subtotal + tax;
+
+            const maskedCard = cardNumber.length >= 4 
+                ? "**** **** **** " + cardNumber.slice(-4) 
+                : "****";
+
+            const receiptMessage = `Thank you so much for making a purchase on our website! Here is your receipt:
+
+            CUSTOMER DETAILS:
+            Name: ${firstName} ${lastName}
+            Email: ${email}
+
+            SHIPPING ADDRESS:
+            ${address}
+            ${city}, ${state} ${zip}
+            ${country}
+
+            ORDER SUMMARY:
+            ${orderItemsText}
+            Subtotal: ₱${subtotal.toLocaleString()}.00
+            Tax (12%): ₱${tax.toLocaleString()}.00
+            Grand Total: ₱${grandTotal.toLocaleString()}.00
+
+            PAYMENT INFO:
+            Card Name: ${cardName}
+            Card Number: ${maskedCard}`;
+
+            console.log(receiptMessage);
+
+            emailjs.init("h1pJrdHJ7bsjOBTjE");
+            await emailjs.send("service_kqi61hb", "template_ooiivmh", {
+                send_to: email,
+                to_name: firstName,
+                message: receiptMessage ,
+                reply_to: "no-reply@mywebsite.com"
+            }).then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                    // Empty the cart
+                localStorage.removeItem('cartList');
+                
+                // Set a flag so cars.html knows an order was just placed
+                localStorage.setItem('orderStatus', 'completed');
+                
+                // Redirect to cars page instantly
+                window.location.href = "cars.html";
+            }, function(error) {
+                console.log('FAILED...', error);
+                    // Empty the cart
+                localStorage.removeItem('cartList');
+                
+                // Set a flag so cars.html knows an order was just placed
+                localStorage.setItem('orderStatus', 'completed');
+                
+                // Redirect to cars page instantly
+                window.location.href = "cars.html";
+            });
+
             
-            // Redirect to cars page instantly
-            window.location.href = "cars.html";
         });
 
         // 2. Load Cart Data
@@ -186,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const itemHTML = `
                     <div style="display:flex; align-items:center; margin-bottom:15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
-                        // <img src="${car.image}" alt="${car.name}" style="width:80px; height:60px; object-fit:cover; border-radius:4px; border: 1px solid #d3a44b;">
+                        <img src="${car.image}" alt="${car.name}" style="width:80px; height:60px; object-fit:cover; border-radius:4px; border: 1px solid #d3a44b;">
                         <div style="margin-left:15px; flex-grow:1; color:#ffffff;">
                             <h4 style="margin:0 0 5px 0; color:#d3a44b;">${car.name}</h4>
                             <p style="margin:0; font-size:12px; color:#a7addc;">Qty: 1 Day</p>
