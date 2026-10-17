@@ -286,10 +286,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //contact.html:
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
                 e.preventDefault(); 
-                document.getElementById('contact-success').style.display = 'flex'; // Show success popup
-                this.reset(); // Clear the form fields
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const Message = `${subject} 
+
+                Name: ${name}
+                Email: ${email}
+
+                Message:
+                ${message}`;
+
+                emailjs.init("h1pJrdHJ7bsjOBTjE");
+                await emailjs.send("service_lzo121i", "template_wb6jj39", {
+                    to_name: name,
+                    message: Message,
+                    reply_to: "no-reply@mywebsite.com"
+                }).then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('contact-success').style.display = 'flex'; // Show success popup
+                    this.reset(); 
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    document.getElementById('contact-success').style.display = 'flex'; // Show success popup
+                    this.reset(); 
+                });
+
+                
             });
 
 

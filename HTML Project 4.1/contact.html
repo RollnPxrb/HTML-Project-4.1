@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Roll an Go Rentals</title>
     <link rel="stylesheet" href="Roll an Go.css">
-    <script src="javascript.js"></script>
+    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
@@ -109,7 +109,7 @@
     <div class="footer">
         <p>&copy; 2026 Roll an Go Rentals. All rights reserved.</p>
     </div>
-
+    <script src="javascript.js"></script>
     <script>
 
 //  let allowedIP = JSON.parse(localStorage.getItem('allowedIP')) || [];
@@ -141,6 +141,39 @@ document.addEventListener('DOMContentLoaded', () => {
             text.innerText = "You are currently offline. Please check your network settings.";
 
         });
+
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+                e.preventDefault(); 
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const Message = `${subject} 
+
+                Name: ${name}
+                Email: ${email}
+
+                Message:
+                ${message}`;
+
+                emailjs.init("h1pJrdHJ7bsjOBTjE");
+                await emailjs.send("service_lzo121i", "template_wb6jj39", {
+                    to_name: name,
+                    message: Message,
+                    reply_to: "no-reply@mywebsite.com"
+                }).then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('contact-success').style.display = 'flex'; // Show success popup
+                    this.reset(); 
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    document.getElementById('contact-success').style.display = 'flex'; // Show success popup
+                    this.reset(); 
+                });
+
+                
+            });
 });
 
 </script>
