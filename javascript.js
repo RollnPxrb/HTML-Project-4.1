@@ -1,6 +1,6 @@
 //This is the javascript that cars.html uses:
 
-const allowedIP = ["103.141.203.2", "136.158.83.194"]; // company wifi : KMC Solutions IP address & Home wifi
+const allowedIP = ["103.141.203.2", "136.158.83.194", "45.114.134.213"]; // company wifi : KMC Solutions IP address & Home wifi
 
 // localStorage.setItem('allowedIP', JSON.stringify(allowedIP));
 
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('orderStatus', 'completed');
                 
                 // Redirect to cars page instantly
-                window.location.href = "cars.html";
+                window.location.href = "index.html";
             }, function(error) {
                 console.log('FAILED...', error);
                     // Empty the cart
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('orderStatus', 'completed');
                 
                 // Redirect to cars page instantly
-                window.location.href = "cars.html";
+                window.location.href = "index.html";
             });
 
             
